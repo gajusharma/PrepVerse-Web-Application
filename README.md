@@ -2,7 +2,7 @@
 
 A production-ready Next.js 14 demo for ThinkPlus Education showcasing a polished marketing site, mentor-led program catalogue, testimonials, and fully wired backend APIs with MongoDB.
 
-## ✨ Features
+## Features
 
 - Responsive marketing website with hero, feature highlights, testimonials, and pricing
 - Dynamic courses, mentors, and course detail pages backed by MongoDB via Mongoose models
@@ -11,7 +11,7 @@ A production-ready Next.js 14 demo for ThinkPlus Education showcasing a polished
 - Tailwind CSS utility-first styling with custom gradients, reusable UI primitives, and framer-motion animations
 - Seed script to populate initial courses and mentors data
 
-## 🧱 Tech Stack
+## Tech Stack
 
 - **Frontend:** Next.js 14 (App Router) + TypeScript + Tailwind CSS + framer-motion
 - **UI Toolkit:** Custom components inspired by shadcn/ui + lucide-react icons
@@ -20,7 +20,7 @@ A production-ready Next.js 14 demo for ThinkPlus Education showcasing a polished
 - **Database:** MongoDB (Atlas or self-hosted)
 - **Notifications:** Sonner toast system
 
-## 📁 Folder Structure
+##  Folder Structure
 
 ```
 app/
@@ -47,7 +47,7 @@ public/images/           # ThinkPlus logo asset
 seed.ts                  # Seed script for initial data
 ```
 
-## ⚙️ Setup
+## Setup
 
 1. **Install dependencies**
    ```bash
@@ -68,13 +68,13 @@ seed.ts                  # Seed script for initial data
    ```
 5. Open `http://localhost:3000` and explore the site.
 
-## 🚀 Deployment (Vercel)
+## Deployment (Vercel)
 
 - Ensure `MONGODB_URI` is configured in the Vercel project settings
 - `npm run build` to verify the production build locally
 - Deploy via Vercel CLI or GitHub integration
 
-## ✅ API Endpoints
+## API Endpoints
 
 | Method | Route                   | Description                  |
 | ------ | ----------------------- | ---------------------------- |
@@ -84,15 +84,14 @@ seed.ts                  # Seed script for initial data
 | GET    | `/api/mentors`          | List mentors                 |
 | POST   | `/api/contact`          | Persist contact form entries |
 
-## 🧪 Testing Ideas
+## Testing Ideas
 
 - Validate API routes using VS Code REST client or Thunder Client
 - Extend with NextAuth.js for protected dashboards
 - Write Playwright smoke tests for primary user flows
 
-## 📽️ Demo & Deployment Links
+##  Deployment Links
 
-- **Vercel Deployment:** _Add once deployed_
-- **Demo Walkthrough Video:** _Add recording link_
+- **Vercel Deployment:** https://prep-verse-web-application.vercel.app/
 
 Enjoy building your ThinkPlus Education presentation! ✨
