@@ -13,7 +13,7 @@ const userSchema = new Schema<User>(
 );
 
 userSchema.set("toJSON", {
-  transform: (_doc, ret) => {
+  transform: (_doc, ret: any) => {
     // remove sensitive fields when returning JSON
     delete ret.password;
     return ret;

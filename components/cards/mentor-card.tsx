@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Mentor } from "@/types/mentor";
 import { Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
 
 interface MentorCardProps {
   mentor: Mentor;
@@ -29,22 +28,26 @@ export default function MentorCard({ mentor }: Readonly<MentorCardProps>) {
       </div>
       <div className="mt-6 flex items-center justify-center gap-3">
         {mentor.socials.linkedin ? (
-          <Link
+          <a
             href={mentor.socials.linkedin}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:border-brand hover:text-brand"
             aria-label={`${mentor.name} on LinkedIn`}
           >
             <Linkedin className="h-4 w-4" />
-          </Link>
+          </a>
         ) : null}
         {mentor.socials.twitter ? (
-          <Link
+          <a
             href={mentor.socials.twitter}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition hover:border-brand hover:text-brand"
             aria-label={`${mentor.name} on Twitter`}
           >
             <Twitter className="h-4 w-4" />
-          </Link>
+          </a>
         ) : null}
       </div>
     </div>

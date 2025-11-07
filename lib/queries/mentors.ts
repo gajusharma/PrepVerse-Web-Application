@@ -2,15 +2,19 @@ import dbConnect from "@/lib/dbConnect";
 import MentorModel from "@/models/Mentor";
 import type { Mentor } from "@/types/mentor";
 
+type WithMaybeObjectId<T> = T & {
+  _id?: string | { toString(): string } | null | undefined;
+};
+
+const hasToString = (value: unknown): value is { toString(): string } =>
+  typeof value === "object" && value !== null && typeof (value as { toString?: unknown }).toString === "function";
+
 const toMentor = (doc: unknown): Mentor => {
-  const mentor = doc as Mentor & { _id?: string };
-  if (mentor._id && typeof mentor._id !== "string") {
-    mentor._id = mentor._id.toString();
+  const raw = doc as any;
+  if (raw._id && typeof raw._id.toString === "function") {
+    raw._id = raw._id.toString();
   }
-  return {
-    ...mentor,
-    _id: mentor._id ?? undefined
-  };
+  return raw as Mentor;
 };
 
 export async function getAllMentors(): Promise<Mentor[]> {

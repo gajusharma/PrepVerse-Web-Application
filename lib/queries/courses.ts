@@ -2,15 +2,19 @@ import dbConnect from "@/lib/dbConnect";
 import CourseModel from "@/models/Course";
 import type { Course } from "@/types/course";
 
+type WithMaybeObjectId<T> = T & {
+  _id?: string | { toString(): string } | null | undefined;
+};
+
+const hasToString = (value: unknown): value is { toString(): string } =>
+  typeof value === "object" && value !== null && typeof (value as { toString?: unknown }).toString === "function";
+
 const toCourse = (doc: unknown): Course => {
-  const course = doc as Course & { _id?: string };
-  if (course._id && typeof course._id !== "string") {
-    course._id = course._id.toString();
+  const raw = doc as any;
+  if (raw._id && typeof raw._id.toString === "function") {
+    raw._id = raw._id.toString();
   }
-  return {
-    ...course,
-    _id: course._id ?? undefined
-  };
+  return raw as Course;
 };
 
 export interface CourseFilter {
